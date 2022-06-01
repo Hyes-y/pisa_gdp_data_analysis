@@ -14,4 +14,30 @@ PISA의 세 분야중 읽기 테스트의 점수를 국가별 문해력의 정�
 - [World GDP(GDP, GDP per capita, and annual growths)](https://www.kaggle.com/datasets/zgrcemta/world-gdpgdp-gdp-per-capita-and-annual-growths)
 
 ## 사용 라이브러리
-- 
+- python
+- numpy
+- pandas
+- matplotlib.pyplot
+- seaborn
+- scikit-learn
+
+## 요약
+데이터 분석 과정은
+- 데이터셋 탐색
+- 데이터셋 전처리
+- 데이터 분석
+- 데이터 시각화            
+
+Kaggle에서 찾은 데이터셋을 전처리(불필요한 컬럼 제거, 국가명 통일, 데이터셋 형태 통일, 이상치 제거 등) 하였고        
+`LinearRegression`과 `RANSACRegressor`를 사용하여 분석하고 시각화 하였습니다.
+
+🔥 `RANSAC Regressor` 를 사용한 이유
+> RANSAC은 전체 데이터 집합의 인라이어 하위 집합에서 매개 변수를 강력하게 추정하기 위한 반복 알고리즘이다.
+> 출처: [scikit-learn](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.RANSACRegressor.html)
+
+- PISA Score와 상관 없이 GDP가 높은 국가들(이상치) 에 영향을 크게 받지 않도록 Ransac 알고리즘을 사용
+- 이상치를 제거하지 않아도 양의 상관관계가 나타남
+- but 데이터 자체가 엄청 많은게 아니라서 이상치 제거도 병행해주었음
+
+
+## 결과
